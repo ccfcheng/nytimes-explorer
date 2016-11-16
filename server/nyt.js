@@ -1,7 +1,5 @@
 const url = require('url');
 
-const ARTICLES_KEY = process.env.NYT_ARTICLES_API;
-
 const makeArticlesURL = (searchStr) => {
   const urlObj = {
     protocol: 'http',
