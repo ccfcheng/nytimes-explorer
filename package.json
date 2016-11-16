@@ -4,9 +4,14 @@
   "description": "Use the NYTimes API for visualization",
   "main": "index.js",
   "scripts": {
+    "lint": "npm run lint:server && npm run lint:src",
+    "lint:server": "eslint server",
+    "lint:src": "eslint src",
+    "mocha": "mocha --require babel-core/register",
+    "mocha:watch": "npm run mocha -- --watch",
     "nodemon": "nodemon server",
     "start": "node server",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npm run lint:server"
   },
   "repository": {
     "type": "git",
@@ -19,12 +24,21 @@
   },
   "homepage": "https://github.com/ccfcheng/nytimes-explorer#readme",
   "dependencies": {
+    "express": "4.14.0",
     "react": "15.3.2",
     "react-dom": "15.3.2",
     "request": "2.78.0",
     "webpack": "1.13.3"
   },
   "devDependencies": {
-    "nodemon": "1.11.0"
+    "chai": "3.5.0",
+    "eslint": "3.10.2",
+    "eslint-config-airbnb": "13.0.0",
+    "eslint-plugin-import": "2.2.0",
+    "eslint-plugin-jsx-a11y": "2.2.3",
+    "eslint-plugin-react": "6.7.1",
+    "mocha": "3.1.2",
+    "nodemon": "1.11.0",
+    "webpack-dev-server": "1.16.2"
   }
 }
