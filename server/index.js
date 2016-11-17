@@ -2,7 +2,7 @@ const express = require('express');
 const request = require('request');
 const NYT = require('./nyt');
 
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 1337;
 const app = express();
 
 // console.log('NODE_ENV:', process.env.NODE_ENV);
@@ -12,7 +12,7 @@ const app = express();
 app.get('/', (req, res) => res.send('Hello World'));
 
 app.get('/test', (req, res) => {
-  const urlString = NYT.makeArticlesURL('jeremy lin');
+  const urlString = NYT.makeArticlesURL('steph curry');
   request.get(urlString, (err, response, body) => {
     // console.log('err:', err);
     // console.log('response:', response);
@@ -24,5 +24,5 @@ app.get('/test', (req, res) => {
 });
 
 app.listen(PORT, () => {
-  // console.log('Listening on port ', PORT);
+  console.log('Listening on port ', PORT);
 });
