@@ -3,7 +3,7 @@ const Constants = require('./constants');
 
 const makeFields = fieldsArray => fieldsArray.join(',');
 
-const makeArticlesURL = (searchStr) => {
+const makeArticlesURL = (searchStr, offset = 0) => {
   const urlObj = {
     protocol: 'http',
     slashes: true,
@@ -12,8 +12,9 @@ const makeArticlesURL = (searchStr) => {
     query: {
       q: searchStr,
       fl: makeFields(Constants.ARTICLE_FIELDS),
-      sort: 'newest',
-      'api-key': Constants.API_ARTICLES_KEY,
+      // sort: 'newest',
+      page: offset,
+      'api-key': Constants.NYT_API_KEY,
     },
   };
   return url.format(urlObj);
