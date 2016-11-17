@@ -1,23 +1,34 @@
 const express = require('express');
 // const request = require('request');
 // const NYT = require('./nyt');
-const data = require('./mockdata');
+const mockdata = require('./mockdata');
+const mocksections = require('./mocksections');
 
-const PORT = process.env.PORT || 1337;
+const PORT = process.env.PORT || 8080;
 const app = express();
 
 app.use('/', express.static('dist'));
 
 app.get('/', (req, res) => res.sendFile('index.html'));
-// Endpoint to get mock data for beginning to build frontend
-app.get('/data', (req, res) => {
+// Mock endpoint
+app.get('/articles', (req, res) => {
   // const urlString = NYT.makeArticlesURL('steph curry');
   // request.get(urlString, (err, response, body) => {
   //   if (!err && response.statusCode === 200) {
   //     res.send(body);
   //   }
   // });
-  res.send(data);
+  res.send(mockdata);
+});
+// Use cached sections
+app.get('/sections', (req, res) => {
+  // const urlString = NYT.makeSectionsUrl();
+  // request.get(urlString, (e, r, body) => {
+  //   if (!e && r.statusCode === 200) {
+  //     res.send(body);
+  //   }
+  // });
+  res.send(mocksections);
 });
 
 app.listen(PORT, () => {
