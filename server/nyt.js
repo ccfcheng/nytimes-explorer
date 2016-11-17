@@ -1,14 +1,19 @@
 const url = require('url');
+const Constants = require('./constants');
+
+const makeFields = fieldsArray => fieldsArray.join(',');
 
 const makeArticlesURL = (searchStr) => {
   const urlObj = {
     protocol: 'http',
     slashes: true,
-    hostname: 'api.nytimes.com',
-    pathname: '/svc/search/v2/articlesearch.json',
+    hostname: Constants.API_HOSTNAME,
+    pathname: Constants.API_ARTICLES_PATHNAME,
     query: {
       q: searchStr,
-      'api-key': process.env.NYT_ARTICLES_API,
+      fl: makeFields(Constants.ARTICLE_FIELDS),
+      sort: 'newest',
+      'api-key': Constants.API_ARTICLES_KEY,
     },
   };
   return url.format(urlObj);
