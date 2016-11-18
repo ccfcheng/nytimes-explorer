@@ -1,6 +1,6 @@
 const express = require('express');
-// const request = require('request');
-// const NYT = require('./nyt');
+const request = require('request');
+const NYT = require('./nyt');
 const mockdata = require('./mockdata');
 const mocksections = require('./mocksections');
 
@@ -29,6 +29,18 @@ app.get('/sections', (req, res) => {
   //   }
   // });
   res.send(mocksections);
+});
+
+app.get('/timeswire/:section', (req, res) => {
+  const section = req.params.section;
+  const urlString = NYT.makeTimesWireUrl(section);
+  console.log('url:', urlString);
+  request.get(urlString, (e, r, body) => {
+    // if (!e && r.statusCode === 200) {
+    res.send(body);
+    // }
+  });
+  // res.send(mocksections);
 });
 
 app.listen(PORT, () => {

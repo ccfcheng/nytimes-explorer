@@ -1,6 +1,7 @@
 const NYT_API_KEY = process.env.NYT_API_KEY || 'DEFAULT_VALUE';
 const API_ARTICLES_PATH = '/svc/search/v2/articlesearch.json';
 const API_SECTIONLIST_PATH = '/svc/news/v3/content/section-list.json';
+const API_TIMESWIRE_PATH = '/svc/news/v3/content';
 const API_HOSTNAME = 'api.nytimes.com';
 
 // http://api.nytimes.com/svc/news/v3/content/section-list.json
@@ -30,6 +31,7 @@ module.exports = {
   NYT_API_KEY,
   API_ARTICLES_PATH,
   API_SECTIONLIST_PATH,
+  API_TIMESWIRE_PATH,
   API_HOSTNAME,
   ARTICLE_FIELDS,
 };
