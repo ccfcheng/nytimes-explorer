@@ -27,9 +27,9 @@ export const loadArticlesIntoState = () => (dispatch) => {
     .then(resData => dispatch(updateResults(resData.response.docs)));
 };
 
-export const loadTimeswireIntoState = (section) => (dispatch) => {
-  fetch(`/timeswire/${section}`)
+export const loadTimeswireIntoState = () => (dispatch) => {
+  fetch('/timeswire')
     .then(res => res.json())
-    .then(resData => console.log(resData));
-    // .then(resData => dispatch(updateResults(resData.response.docs)));
+    // .then(resData => console.log(resData));
+    .then(resData => dispatch(updateResults(resData.results)));
 };

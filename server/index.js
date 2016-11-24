@@ -1,8 +1,7 @@
 const express = require('express');
-const request = require('request');
-const NYT = require('./nyt');
-const mockdata = require('./mockdata');
-const mocksections = require('./mocksections');
+// const request = require('request');
+// const NYT = require('./nyt');
+const data = require('./mockdata');
 
 const PORT = process.env.PORT || 8080;
 const app = express();
@@ -18,7 +17,7 @@ app.get('/articles', (req, res) => {
   //     res.send(body);
   //   }
   // });
-  res.send(mockdata);
+  res.send(data.articles);
 });
 // Use cached sections
 app.get('/sections', (req, res) => {
@@ -28,19 +27,20 @@ app.get('/sections', (req, res) => {
   //     res.send(body);
   //   }
   // });
-  res.send(mocksections);
+  res.send(data.sections);
 });
 
-app.get('/timeswire/:section', (req, res) => {
-  const section = req.params.section;
-  const urlString = NYT.makeTimesWireUrl(section);
-  console.log('url:', urlString);
-  request.get(urlString, (e, r, body) => {
-    // if (!e && r.statusCode === 200) {
-    res.send(body);
-    // }
-  });
-  // res.send(mocksections);
+app.get('/timeswire', (req, res) => {
+// app.get('/timeswire/:section', (req, res) => {
+  // const section = req.params.section;
+  // const urlString = NYT.makeTimesWireUrl(section);
+  // console.log('url:', urlString);
+  // request.get(urlString, (e, r, body) => {
+  //   if (!e && r.statusCode === 200) {
+  //     res.send(body);
+  //   }
+  // });
+  res.send(data.timeswire);
 });
 
 app.listen(PORT, () => {

@@ -12,7 +12,7 @@ class MainContainer extends Component {
   componentWillMount() {
     this.props.dispatch(Data.loadSectionsIntoState());
     // this.props.dispatch(Data.loadArticlesIntoState());
-    this.props.dispatch(Data.loadTimeswireIntoState('multimedia'));
+    this.props.dispatch(Data.loadTimeswireIntoState());
   }
 
   render() {

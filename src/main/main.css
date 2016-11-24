@@ -11,6 +11,7 @@ body {
   font-size: 36px;
 }
 
-.app__content {
-  font-size: 16px;
+.app__results {
+  display: flex;
+  flex-flow: row wrap;
 }

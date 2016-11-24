@@ -1,24 +1,18 @@
 /* eslint-disable */
 import React, { PropTypes } from 'react';
+import Story from '../story';
 import './main.css';
 
 export default function MainView(props) {
-  // console.log(props.);
   return (
     <div className="app">
       <div className="app__title">{props.title}</div>
-      <div className="app__title">Sections</div>
-      <ul>
-        {props.sections.map(section => (
-          <li>{section.section}</li>
-        ))}
-      </ul>
       <div className="app__title">Results</div>
-      <ul>
-        {props.results.map(result => (
-          <li>{result.headline.main}</li>
+      <div className="app__results">
+        {props.results.map((result, i) => (
+          <Story article={result} key={i} />
         ))}
-      </ul>
+      </div>
     </div>
   );
 }
