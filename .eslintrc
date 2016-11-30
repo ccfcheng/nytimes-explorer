@@ -1,22 +1,21 @@
 {
-  "extends": "airbnb",
-  "rules": {
-    "class-methods-use-this": "off",
-    "import/no-extraneous-dependencies": ["error", {"devDependencies": true, "optionalDependencies": false, "peerDependencies": false}],
-    "jsx-a11y/img-has-alt": "off",
-    "jsx-a11y/no-static-element-interactions": "off",
-    "no-underscore-dangle": "off",
-    "no-plusplus": [1, {"allowForLoopAfterthoughts": true}],
-    "no-prototype-builtins": "off",
-    "react/forbid-prop-types": "off",
-    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
-    "react/no-danger": "off",
+  "env": {
+    "browser": true,
+    "node": true,
+    "es6": true,
+    "mocha": true,
   },
-  "globals": {
-    "fetch": false,
-    "describe": false,
-    "xdescribe": false,
-    "it": false,
-    "xit": false,
-  }
+  "plugins": [
+    "react",
+    "import",
+  ],
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+  ],
+  "parserOptions": {
+    "sourceType": "module",
+  },
 }

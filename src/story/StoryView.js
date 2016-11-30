@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import './story.css';
 
 export default function StoryView(props) {
-  console.log('article:', props.article);
+  // console.log('article:', props.article);
   const article = props.article;
   return (
     <div className="story">

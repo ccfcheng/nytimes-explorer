@@ -11,7 +11,7 @@ import Main from './main';
 
 const store = createStore(
   reducers,
-  applyMiddleware(thunk),
+  applyMiddleware(thunk)
 );
 
 // render((
